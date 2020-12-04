@@ -1,0 +1,100 @@
+//导入公共的样式
+@import 'public';
+body{
+    width: 100%;
+    height: 100%;
+}
+#box{
+    width: 500px;
+    height: 600px;
+    border: 1px solid black;
+    position: relative;
+    margin: 0 auto;
+    .top{
+        width: 500px;
+        height: 400px;
+        background: gray;
+        position: absolute;
+        left: 0;
+        top : 0;
+        .mark-l{
+            width: 250px;
+            height: 400px;
+            background: pink;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .mark-r{
+            width: 250px;
+            height: 400px;
+            background: pink;
+            position: absolute;
+            right: 0;
+            top: 0;
+            #body &{  //& :   #box .top .mark-r
+               background: green;
+            }
+        }
+       
+    }
+
+}
+
+#top_nav_li{
+    border: {
+        style : solid;
+        left: {
+            width : 4px;
+            color : #888;
+        }
+        right: {
+            width : 2px;
+            color : #ccc
+        }
+    }
+}
+body{
+    // font-size: $fontSize;
+    font: #{$fontSize} / #{$lineHeight};
+    @if $theme == drak{
+        background : black;
+    }@else if $theme == light{
+        background : white;
+    }@else{
+        background: gray;
+    }
+}
+
+
+$col : 4;
+@for $i from 1 through $col{
+    col-#{$i}{
+        width : 100% / $col * $i;
+    }
+}
+@for $j from 1 to $col{
+    row-#{$j}{
+        height : 100% / $col * $j;
+    }
+}
+
+$arr : success error warning;
+@each $i in $arr{
+    icon-#{$i}{
+        background-image : url(img/#{$i}.png);
+    }
+}
+
+#pox{
+    @include size(100%,200px);
+    @include position(fixed,100px);
+    background-color: color(light);
+}
+
+#me{
+    @extend #pox;
+    border: 1px solid black;
+}
+//写在sass的注释
+/* 写在css中的注释*/

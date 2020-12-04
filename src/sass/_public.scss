@@ -1,0 +1,26 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+//声明变量
+$fontSize : 20px !default;
+$lineHeight : 1.5;
+
+$theme : nine;
+
+//宏 尺寸
+@mixin size($width : 100px,$height : 100px){
+    width: $width;
+    height: $height;
+}
+// 定位
+@mixin position($position : absolute,$left : 0,$top : 0){
+    position: $position;
+    left : $left;
+    top : $top;
+}
+
+$colors : (light : #fff,dark : #000);
+@function color($key){
+    @return map-get($colors,$key);
+}
